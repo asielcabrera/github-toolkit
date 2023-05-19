@@ -12,6 +12,7 @@ public extension Core {
     struct File {
         public static func create(atPath path: String, contents: Data?, attributes: [FileAttributeKey: Any]? = nil) throws {
             FileManager.default.createFile(atPath: path, contents: contents, attributes: attributes)
+            print("Creando File: \(path)")
         }
         
         public static func read(atPath path: String) throws -> Data {

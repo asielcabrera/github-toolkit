@@ -11,6 +11,7 @@ public extension Core {
     struct Directory {
         public static func create(atPath path: String, withIntermediateDirectories createIntermediates: Bool = true, attributes: [FileAttributeKey: Any]? = nil) throws {
             try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: createIntermediates, attributes: attributes)
+            print("Creando directorio: \(path)")
         }
         
         public static func delete(atPath path: String) throws {
