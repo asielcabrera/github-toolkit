@@ -23,9 +23,5 @@ enum CommandName: String, CaseIterable {
        // https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands
        case SaveState = "save-state"
        case SetOutput = "set-output"
-    
-    
-    public func IsConventional(command: CommandName) -> Bool {
-        Self.allCases.contains { $0 == command }
-    }
+
 }
