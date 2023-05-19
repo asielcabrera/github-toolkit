@@ -45,7 +45,7 @@ public struct Core {
 //
 //        _ = try? terminal.execute("echo \"\(name)=\(value)\" >> $GITHUB_OUTPUT" )
         
-        _ = try? CommandTerminal.run("/bin/bash", arguments: ["echo \"\(name)=\(value)\" >> $GITHUB_OUTPUT"])
+        _ = try? CommandTerminal.run("/bin/echo", arguments: ["\"\(name)=\(value)\" >> $GITHUB_OUTPUT"])
         
         //        func exec(_ path: String, _ args: String...) throws -> Int32 {
         //            let task = Process()
