@@ -8,8 +8,8 @@
 import Foundation
 
 
-public struct Terminal {
-    public static func run(_ executable: String, arguments: [String]) throws -> TerminalResult {
+public struct CommandTerminal {
+    public static func run(_ executable: String, arguments: [String]) throws -> CommandTerminalResult {
         let process = Process()
         process.executableURL = URL(fileURLWithPath: executable)
         process.arguments = arguments
@@ -28,11 +28,11 @@ public struct Terminal {
         let outputString = String(data: outputData, encoding: .utf8)
         let errorString = String(data: errorData, encoding: .utf8)
         
-        return TerminalResult(output: outputString, error: errorString, exitCode: Int(process.terminationStatus))
+        return CommandTerminalResult(output: outputString, error: errorString, exitCode: Int(process.terminationStatus))
     }
 }
 
-public struct TerminalResult {
+public struct CommandTerminalResult {
     public let output: String?
     public let error: String?
     public let exitCode: Int
