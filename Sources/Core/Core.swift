@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Terminal
 
 public struct Core {
     public static func getInput(name: String, options: InputOptions = .init()) -> String? {
@@ -36,14 +35,14 @@ public struct Core {
         return ["true", "1", "yes", "on"].contains(value.lowercased())
     }
     
-    public static func setOutput(name: String, value: String) {
+    public static func setOutput(name: String, value: String) throws {
         //        print("::set-output name=\(name)::\(value)")
         
         //        echo "{name}={value}" >> $GITHUB_OUTPUT
         
-        let terminal = Terminal(type: .bash)
-        
-        _ = try? terminal.execute("echo \"\(name)=\(value)\" >> $GITHUB_OUTPUT" )
+   
+        _ = try Terminal.run("echo", arguments: ["\"\(name)=\(value)\" >> $GITHUB_OUTPUT"])
+//        _ = try? terminal.execute("echo \"\(name)=\(value)\" >> $GITHUB_OUTPUT" )
         
         //        func exec(_ path: String, _ args: String...) throws -> Int32 {
         //            let task = Process()
@@ -67,7 +66,7 @@ public struct Core {
     
     public static func setSecret(name: String, value: String) {
         print("::add-mask::$\(value)")
-        setOutput(name: name, value: value)
+        try? setOutput(name: name, value: value)
     }
     
     public static func debug(message: String) {

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Foundation
 
 public extension Core {
     struct File {
