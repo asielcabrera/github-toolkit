@@ -40,10 +40,12 @@ public struct Core {
         //        print("::set-output name=\(name)::\(value)")
         
         //        echo "{name}={value}" >> $GITHUB_OUTPUT
+//
+//        let terminal = Terminal(type: .bash)
+//
+//        _ = try? terminal.execute("echo \"\(name)=\(value)\" >> $GITHUB_OUTPUT" )
         
-        let terminal = Terminal(type: .bash)
-        
-        _ = try? terminal.execute("echo \"\(name)=\(value)\" >> $GITHUB_OUTPUT" )
+        _ = try? CommandTerminal.run("/bin/bash", arguments: ["echo \"\(name)=\(value)\" >> $GITHUB_OUTPUT"])
         
         //        func exec(_ path: String, _ args: String...) throws -> Int32 {
         //            let task = Process()
