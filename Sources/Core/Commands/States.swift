@@ -9,7 +9,8 @@ import Foundation
 
 extension Core {
     public struct States: Command {
-        public typealias Value = Any?
+     
+        public typealias Value = String?
         
         public static func execute(with name: String, value: String?) {
             // Implementación para obtener y establecer valores de estado persistentes

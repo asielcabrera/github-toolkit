@@ -9,6 +9,4 @@ import Foundation
 
 public protocol Command {
     associatedtype Value
-    
-    static func execute(with name: String, value: String?)
 }
