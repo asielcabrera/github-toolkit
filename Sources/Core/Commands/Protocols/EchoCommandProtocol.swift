@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol EchoCommandProtocol: Command {
+public protocol EchoCommandProtocol: Command {
     
 }

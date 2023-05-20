@@ -9,7 +9,7 @@ import Foundation
 
 extension Core {
     public struct Inputs: InputCommand {
-        func getInput(name: String, options: InputOptions = .init()) -> String? {
+        public func getInput(name: String, options: InputOptions = .init()) -> String? {
             let inputKey = "INPUT_\(name.uppercased())"
             let defaultValue = options.defaultValue
             
@@ -28,7 +28,7 @@ extension Core {
             return nil
         }
         
-        func getBooleanInput(name: String, options: InputOptions = .init()) -> Bool? {
+        public func getBooleanInput(name: String, options: InputOptions = .init()) -> Bool? {
             guard let value = getInput(name: name, options: options) else {
                 return false
             }

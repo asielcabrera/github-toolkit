@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol InputCommand: Command {
+public protocol InputCommand: Command {
     func getInput(name: String, options: InputOptions) -> String?
     func getBooleanInput(name: String, options: InputOptions ) -> Bool?
 }
