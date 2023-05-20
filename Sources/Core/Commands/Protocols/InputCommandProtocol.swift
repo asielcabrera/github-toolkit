@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol InputCommand: Command {
-    func getInput(name: String, options: InputOptions) -> String?
-    func getBooleanInput(name: String, options: InputOptions ) -> Bool?
+    static func getInput(name: String, options: InputOptions) -> String?
+    static func getBooleanInput(name: String, options: InputOptions ) -> Bool?
 }

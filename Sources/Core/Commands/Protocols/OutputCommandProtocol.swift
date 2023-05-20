@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol OutputCommand: Command {
-    func setOutput(name: String, value: Value)
+    static func setOutput(name: String, value: Value)
 }
