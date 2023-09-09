@@ -13,9 +13,7 @@ let package = Package(
         .library(name: "Core", targets: ["Core"]),
         .library(name: "Github", targets: ["Github"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/asielcabrera/Terminal.git", from: "0.0.1"),
-    ],
+    dependencies: [],
     targets: [
         
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -25,11 +23,11 @@ let package = Package(
             dependencies: ["Core", "Github"]),
         .target(
             name: "Core",
-               dependencies: ["Terminal"]
+               dependencies: []
                ),
         .target(
             name: "Github",
-               dependencies: ["Terminal"]
+               dependencies: []
                ),
         .testTarget(
             name: "Github-toolkitTests",

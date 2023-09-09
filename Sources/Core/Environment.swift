@@ -41,6 +41,29 @@ public extension Core {
             return ProcessInfo.processInfo.environment["GITHUB_EVENT_PATH"]
         }
         
+        public static func getGithubEnv() -> String? {
+            return ProcessInfo.processInfo.environment["GITHUB_ENV"]
+        }
+        public static func getGithubVar(_ name: String) -> String? {
+            let environmentVariable = "GITHUB_\(name)"
+            return ProcessInfo.processInfo.environment[environmentVariable]
+        }
+        
+        public static func getPath() -> String? {
+            return ProcessInfo.processInfo.environment["PATH"]
+        }
+        
+        public static func getINPUT(_ name: String) -> String? {
+            ProcessInfo.processInfo.environment["INPUT_\(name.replacingOccurrences(of: " ", with: "_").uppercased())"]
+        }
+        
+        public static func getState(name: String) -> String? {
+            return ProcessInfo.processInfo.environment["STATE_\(name)"]
+        }
     }
     
+}
+
+public extension Core {
+   typealias env = Environment
 }
