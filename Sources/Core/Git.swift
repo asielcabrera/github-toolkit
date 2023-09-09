@@ -42,7 +42,7 @@ public extension Core {
     enum GitError: Error {
         case gitCloneFailed
         case gitTerminalFailed
-        // Agrega otros casos de error según tus necesidades
+        // add some other cases
     }
 
 }
